@@ -17,6 +17,7 @@
 - name: Paths | Create GoLand target directory
   ansible.builtin.file:
     path: "{{ goland_install_dir }}"
+    state: directory
     owner: root
     group: root
     mode: '0755'
