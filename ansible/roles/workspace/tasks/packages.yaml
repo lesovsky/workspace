@@ -100,4 +100,4 @@
     owner: "{{ user_account }}"
     group: "{{ user_account }}"
     mode: '0600'
-  tags: [yakukake]
+  tags: [yakuake]
