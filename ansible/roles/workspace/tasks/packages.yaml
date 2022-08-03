@@ -4,6 +4,7 @@
     pkg: "{{ apt_packages }}"
     state: present
     update_cache: true
+    install_recommends: false
   tags: [install-packages]
 
 ######################################################################
@@ -58,6 +59,7 @@
     pkg: "{{ apt_docker_packages }}"
     state: present
     update_cache: true
+    install_recommends: false
   notify: start docker
   tags: [install-docker]
 
