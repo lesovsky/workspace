@@ -4,5 +4,6 @@
   become: true
   vars:
     user_account: lesovsky
+    user_home: "/home/{{ user_account }}"
   roles:
     - workspace

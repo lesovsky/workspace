@@ -1,0 +1,22 @@
+[Desktop Entry]
+DefaultProfile=Profile 1.profile
+
+[Dialogs]
+FirstRun=false
+
+[Favorite Profiles]
+Favorites=
+
+[Shortcuts]
+decrease-window-height=Alt+Up
+increase-window-height=Alt+Down
+new-session=Ctrl+T
+new-session-quad=Ctrl+]
+next-session=Alt+Right
+previous-session=Alt+Left
+split-left-right=Alt+'
+split-top-bottom=Alt+/
+
+[Window]
+Height=100
+Width=100
