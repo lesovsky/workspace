@@ -1,11 +1,11 @@
 ---
 - name: Configuration | Create .bashrc from template
   ansible.builtin.template:
-    template: bashrc.j2
+    src: bashrc.j2
     dest: "{{ user_account }}/.bashrc"
     owner: "{{ user_account }}"
     group: "{{ user_account }}"
-    mode: '0640'
+    mode: '0644'
 
 - name: Paths | Create /home subdirectories
   ansible.builtin.file:
