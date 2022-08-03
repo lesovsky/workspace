@@ -1,0 +1,47 @@
+---
+home_subdirs:
+  - Documents
+  - Downloads
+  - Music
+  - Temp
+  - Video
+
+apt_packages:
+  - jq                             # command line JSON processor
+  - vlc                            # multimedia player
+  - curl
+  - gnupg
+  - iotop                          # simple top-like IO monitor
+  - okular                         # universal document viewer
+  - sysstat                        # system performance tools
+  - openvpn
+  - network-manager-openvpn
+  - openvpn-systemd-resolved
+  - yakuake                        # quake-style dropdown terminal emulator
+  - gwenview                       # image viewer
+  - krusader                       # twin-panel file manager
+  - audacious                      # audio player
+  - lsb-release
+  - ca-certificates
+  - chromium-browser
+  - chromium-browser-l10n
+  - chromium-codecs-ffmpeg-extra
+
+docker_version: 20.10.17
+docker_compose_version: 2.7.0
+docker_compose_url: "https://github.com/docker/compose/releases/download/v{{ docker_compose_version }}/docker-compose-linux-{{ ansible_architecture }}"
+
+docker_distfiles_url: "https://download.docker.com/linux/{{ ansible_distribution | lower }}"
+apt_repo_keyfile_path: /etc/apt/trusted.gpg.d/docker.gpg
+apt_repo_source: "deb [arch=amd64 signed-by={{ apt_repo_keyfile_path }}] {{ docker_distfiles_url }} {{ ansible_distribution_release }} stable"
+
+apt_docker_version: "5:{{ docker_version }}~3-0"
+apt_docker_packages:
+  - "docker-ce={{ apt_docker_version }}~{{ ansible_distribution | lower }}-{{ ansible_distribution_release }}"
+  - "docker-ce-cli={{ apt_docker_version }}~{{ ansible_distribution | lower }}-{{ ansible_distribution_release }}"
+  - containerd.io
+  - docker-compose-plugin
+
+goland_version: 2022.2
+goland_download_url: "https://download.jetbrains.com/go/goland-{{ goland_version }}.tar.gz"
+goland_install_dir: "/opt/Goland-{{ goland_version }}"

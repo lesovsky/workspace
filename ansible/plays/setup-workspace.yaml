@@ -1,0 +1,8 @@
+- hosts: localhost
+  remote_user: lesovsky
+  become: yes
+  vars:
+    user_account: lesovsky
+  roles:
+    - workspace
+

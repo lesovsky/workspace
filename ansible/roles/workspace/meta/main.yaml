@@ -1,0 +1,18 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: workspace
+  namespace: local
+  author: Alexey Lesovsky
+  email: lesovsky@gmail.com
+  description: Ansible role for manage workspace
+  company: Home
+  license: BSD-3
+  min_ansible_version: 2.13.2
+  platforms:
+    - name: Ubuntu
+      versions:
+        - focal
+  galaxy_tags:
+    - workspace

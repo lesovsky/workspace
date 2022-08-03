@@ -1,0 +1,25 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: atom1
+    image: jrei/systemd-ubuntu:20.04
+    command: /lib/systemd/systemd
+    privileged: True
+    required: True
+    volumes:
+      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
+    networks:
+      - name: molenet
+    groups:
+      - molecule_servers
+provisioner:
+  name: ansible
+  inventory:
+    group_vars:
+      all:
+        ansible_python_interpreter: /usr/bin/python3
+verifier:
+  name: ansible

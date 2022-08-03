@@ -1,0 +1,4 @@
+---
+# .ansible-lint
+
+use_default_rules: true

@@ -1,0 +1,5 @@
+- hosts: vagrant_servers
+  remote_user: vagrant
+  become: yes
+  roles:
+    - template0

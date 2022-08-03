@@ -1,0 +1,8 @@
+---
+- name: Include generic tasks
+  include_tasks: packages.yaml
+  tags: [generic]
+
+- name: Include packages tasks
+  include_tasks: packages.yaml
+  tags: [packages]
