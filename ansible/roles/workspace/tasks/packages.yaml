@@ -32,7 +32,7 @@
 
 - name: Paths | Create 'goland' symlink
   ansible.builtin.file:
-    src: "/opt/Goland-{{ goland_version }}/bin/goland.sh"
+    src: "/opt/GoLand-{{ goland_version }}/bin/goland.sh"
     dest: /usr/bin/goland
     state: link
     owner: root
