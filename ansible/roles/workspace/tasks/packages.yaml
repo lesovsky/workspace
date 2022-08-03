@@ -14,23 +14,23 @@
 ######################################################################
 # GoLand
 ######################################################################
-- name: Paths | Create GoLand target directory
-  ansible.builtin.file:
-    path: "{{ goland_install_dir }}"
-    state: directory
-    owner: root
-    group: root
-    mode: '0755'
+- name: Registers | Check GoLand directory exists
+  ansible.builtin.stat:
+    path: "/opt/Goland-{{ goland_version }}"
+  register: goland_check
   tags: [install-goland]
 
-- name: Packages | Download and install GoLand
-  ansible.builtin.unarchive:
-    src: "{{ goland_download_url }}"
-    dest: "{{ goland_install_dir }}"
-    remote_src: true
+- name: Packages | Install GoLand
+  block:
+    - name: Packages | Download and install GoLand
+      ansible.builtin.unarchive:
+        src: "{{ goland_download_url }}"
+        dest: /opt
+        remote_src: true
+  when: not goland_check.stat.exists
   tags: [install-goland]
 
-- name: Paths | Create goland symlink
+- name: Paths | Create 'goland' symlink
   ansible.builtin.file:
     src: "{{ goland_install_dir }}/bin/goland.sh"
     dest: /usr/bin/goland

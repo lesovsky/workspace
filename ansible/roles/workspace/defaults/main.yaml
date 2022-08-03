@@ -44,4 +44,4 @@ apt_docker_packages:
 
 goland_version: 2022.2
 goland_download_url: "https://download.jetbrains.com/go/goland-{{ goland_version }}.tar.gz"
-goland_install_dir: "/opt/Goland-{{ goland_version }}"
+
