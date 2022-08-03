@@ -16,6 +16,7 @@ next-session=Alt+Right
 previous-session=Alt+Left
 split-left-right=Alt+'
 split-top-bottom=Alt+/
+toggle-window-state=F2
 
 [Window]
 Height=100
