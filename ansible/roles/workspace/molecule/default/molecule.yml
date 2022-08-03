@@ -7,8 +7,8 @@ platforms:
   - name: atom1
     image: jrei/systemd-ubuntu:20.04
     command: /lib/systemd/systemd
-    privileged: True
-    required: True
+    privileged: true
+    required: true
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
     networks:
