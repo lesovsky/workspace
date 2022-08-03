@@ -27,6 +27,8 @@ apt_packages:
   - chromium-browser-l10n
   - chromium-codecs-ffmpeg-extra
 
+non_apt_install_root: /opt
+
 docker_version: 20.10.17
 docker_compose_version: 2.7.0
 docker_compose_url: "https://github.com/docker/compose/releases/download/v{{ docker_compose_version }}/docker-compose-linux-{{ ansible_architecture }}"
@@ -44,4 +46,5 @@ apt_docker_packages:
 
 goland_version: 2022.2
 goland_download_url: "https://download.jetbrains.com/go/goland-{{ goland_version }}.tar.gz"
+goland_install_dir: "{{ non_apt_install_root }}/GoLand-{{ goland_version }}"
 

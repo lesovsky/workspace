@@ -16,7 +16,7 @@
 ######################################################################
 - name: Registers | Check GoLand directory exists
   ansible.builtin.stat:
-    path: "/opt/Goland-{{ goland_version }}"
+    path: "{{ goland_install_dir }}"
   register: goland_check
   tags: [install-goland]
 
@@ -25,14 +25,14 @@
     - name: Packages | Download and install GoLand
       ansible.builtin.unarchive:
         src: "{{ goland_download_url }}"
-        dest: /opt
+        dest: "{{ non_apt_install_root }}"
         remote_src: true
   when: not goland_check.stat.exists
   tags: [install-goland]
 
 - name: Paths | Create 'goland' symlink
   ansible.builtin.file:
-    src: "/opt/GoLand-{{ goland_version }}/bin/goland.sh"
+    src: "{{ goland_install_dir }}/bin/goland.sh"
     dest: /usr/bin/goland
     state: link
     owner: root
