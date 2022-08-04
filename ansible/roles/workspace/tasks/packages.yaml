@@ -10,6 +10,44 @@
 ######################################################################
 # Golang
 ######################################################################
+- name: Registers | Check Golang directory exists
+  ansible.builtin.stat:
+    path: "{{ golang_install_dir }}"
+  register: golang_check
+  tags: [install-golang]
+
+- name: Packages | Install Go
+  block:
+    - name: Packages | Download and install Go
+      ansible.builtin.unarchive:
+        src: "{{ golang_download_url }}"
+        dest: /tmp
+        remote_src: true
+
+    - name: Paths | Copy versioned directory
+      ansible.builtin.copy:
+        remote_src: true
+        src: /tmp/go/
+        dest: "{{ golang_install_dir }}"
+
+    - name: Paths | Remove old copy
+      ansible.builtin.file:
+        path: /tmp/go
+        state: absent
+  when: not golang_check.stat.exists
+  tags: [install-golang]
+
+- name: Paths | Create go executables symlinks
+  ansible.builtin.file:
+    src: "{{ golang_install_dir }}/bin/{{ item }}"
+    dest: "/usr/bin/{{ item }}"
+    state: link
+    owner: root
+    group: root
+  loop:
+    - go
+    - gofmt
+  tags: [install-golang]
 
 ######################################################################
 # GoLand
