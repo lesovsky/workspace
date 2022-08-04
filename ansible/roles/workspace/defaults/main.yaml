@@ -52,3 +52,5 @@ goland_version: 2022.2
 goland_download_url: "https://download.jetbrains.com/go/goland-{{ goland_version }}.tar.gz"
 goland_install_dir: "{{ non_apt_install_root }}/GoLand-{{ goland_version }}"
 
+telegram_download_url: "https://telegram.org/dl/desktop/linux"
+telegram_install_dir: "{{ non_apt_install_root}}/Telegram"

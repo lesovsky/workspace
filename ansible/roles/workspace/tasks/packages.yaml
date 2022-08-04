@@ -127,6 +127,41 @@
 ######################################################################
 # Telegram
 ######################################################################
+- name: Registers | Check Telegram executable exists
+  ansible.builtin.stat:
+    path: "{{ telegram_install_dir }}/Telegram"
+  register: telegram_check
+  tags: [install-telegram]
+
+- name: Packages | Install Telegram
+  block:
+    - name: Packages | Download and install Telegram
+      ansible.builtin.unarchive:
+        src: "{{ telegram_download_url }}"
+        dest: /tmp
+        remote_src: true
+
+    - name: Paths | Copy versioned directory
+      ansible.builtin.copy:
+        remote_src: true
+        src: /tmp/Telegram/
+        dest: "{{ telegram_install_dir }}"
+
+    - name: Paths | Remove old copy
+      ansible.builtin.file:
+        path: /tmp/Telegram
+        state: absent
+  when: not telegram_check.stat.exists
+  tags: [install-telegram]
+
+- name: Paths | Create 'telegram' symlink
+  ansible.builtin.file:
+    src: "{{ telegram_install_dir }}/Telegram"
+    dest: /usr/bin/telegram
+    state: link
+    owner: root
+    group: root
+  tags: [install-telegram]
 
 #######################################################################
 # Yakuake
