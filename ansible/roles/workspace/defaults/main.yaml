@@ -13,6 +13,7 @@ apt_packages:
   - gnupg
   - iotop                          # simple top-like IO monitor
   - okular                         # universal document viewer
+  - firefox
   - sysstat                        # system performance tools
   - openvpn
   - network-manager-openvpn

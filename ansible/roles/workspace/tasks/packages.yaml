@@ -174,3 +174,15 @@
     group: "{{ user_account }}"
     mode: '0600'
   tags: [yakuake]
+
+#######################################################################
+# Krusader
+######################################################################
+- name: Configs | Create krusader config from template
+  ansible.builtin.template:
+    src: krusaderrc.j2
+    dest: "{{ user_home }}/.config/krusaderrc"
+    owner: "{{ user_account }}"
+    group: "{{ user_account }}"
+    mode: '0600'
+  tags: [krusader]
