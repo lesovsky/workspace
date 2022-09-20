@@ -26,6 +26,7 @@ apt_packages:
   - audacious                      # audio player
   - lsb-release
   - ca-certificates
+  - build-essential
   - chromium-browser
   - chromium-browser-l10n
   - chromium-codecs-ffmpeg-extra
