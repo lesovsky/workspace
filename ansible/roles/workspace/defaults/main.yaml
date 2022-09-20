@@ -8,8 +8,10 @@ home_subdirs:
 
 apt_packages:
   - jq                             # command line JSON processor
+  - gcc
   - vlc                            # multimedia player
   - curl
+  - make
   - gnupg
   - iotop                          # simple top-like IO monitor
   - okular                         # universal document viewer
