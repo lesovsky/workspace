@@ -14,6 +14,7 @@ apt_packages:
   - make
   - gnupg
   - iotop                          # simple top-like IO monitor
+  - deluge
   - okular                         # universal document viewer
   - firefox
   - sysstat                        # system performance tools
