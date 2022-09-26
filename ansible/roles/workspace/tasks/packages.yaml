@@ -76,6 +76,14 @@
   when: not golangci_lint_check.stat.exists
   tags: [install-golang]
 
+- name: Files | Add +x permissions on golangci-lint
+  ansible.builtin.file:
+    dest: /usr/local/bin/golangci-lint
+    owner: root
+    group: root
+    mode: '0755'
+  tags: [install-golang]
+
 ######################################################################
 # GoLand
 ######################################################################
