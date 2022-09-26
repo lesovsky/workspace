@@ -49,6 +49,33 @@
     - gofmt
   tags: [install-golang]
 
+- name: Registers | Check golangci-lint executable exists
+  ansible.builtin.stat:
+    path: /usr/local/bin/golangci-lint
+  register: golangci_lint_check
+  tags: [install-golang]
+
+- name: Packages | Install golangci-lint
+  block:
+    - name: Packages | Download and install golangci-lint
+      ansible.builtin.unarchive:
+        src: "{{ golangci_lint_download_url }}"
+        dest: /tmp
+        remote_src: true
+
+    - name: Paths | Copy versioned directory
+      ansible.builtin.copy:
+        remote_src: true
+        src: "/tmp/golangci-lint-{{ golangci_lint_version }}-linux-amd64/golangci-lint"
+        dest: /usr/local/bin/golangci-lint
+
+    - name: Paths | Remove old copy
+      ansible.builtin.file:
+        path: /tmp/golangci-lint
+        state: absent
+  when: not golangci_lint_check.stat.exists
+  tags: [install-golang]
+
 ######################################################################
 # GoLand
 ######################################################################

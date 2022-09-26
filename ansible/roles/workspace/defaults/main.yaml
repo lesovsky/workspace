@@ -53,6 +53,9 @@ golang_version: 1.19
 golang_download_url: "https://go.dev/dl/go{{ golang_version }}.linux-amd64.tar.gz"
 golang_install_dir: "{{ non_apt_install_root }}/go-{{ golang_version }}"
 
+golangci_lint_version: 1.49.0
+golangci_lint_download_url: "https://github.com/golangci/golangci-lint/releases/download/v{{ golangci_lint_version }}/golangci-lint-{{ golangci_lint_version }}-linux-amd64.tar.gz"
+
 goland_version: 2022.2
 goland_download_url: "https://download.jetbrains.com/go/goland-{{ goland_version }}.tar.gz"
 goland_install_dir: "{{ non_apt_install_root }}/GoLand-{{ goland_version }}"
