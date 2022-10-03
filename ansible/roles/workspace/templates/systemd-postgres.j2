@@ -1,0 +1,19 @@
+[Unit]
+Description=PostgreSQL primary service
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=-/usr/bin/docker rm postgres-primary
+ExecStartPre=/usr/bin/docker pull postgres:15rc1
+ExecStart=/usr/bin/docker run --name postgres-primary \
+  --network postgres \
+  -v {{ postgres_volume_dir_prefix }}-primary:/var/lib/postgresql/data \
+  -p 5432:5432 \
+  -e POSTGRES_HOST_AUTH_METHOD=trust \
+  postgres:15rc1
+
+[Install]
+WantedBy=multi-user.target

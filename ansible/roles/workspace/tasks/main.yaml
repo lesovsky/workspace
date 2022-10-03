@@ -6,3 +6,7 @@
 - name: Include packages tasks
   include_tasks: packages.yaml
   tags: [packages]
+
+- name: Include services tasks
+  include_tasks: services.yaml
+  tags: [services]

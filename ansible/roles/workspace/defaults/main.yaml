@@ -62,3 +62,9 @@ goland_install_dir: "{{ non_apt_install_root }}/GoLand-{{ goland_version }}"
 
 telegram_download_url: "https://telegram.org/dl/desktop/linux"
 telegram_install_dir: "{{ non_apt_install_root}}/Telegram"
+
+####
+# Services variables
+####
+
+postgres_volume_dir_prefix: /opt/docker/postgres
