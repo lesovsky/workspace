@@ -1,0 +1,10 @@
+alias myproxy='ssh -D 22022 -q -C -N -i /home/{{ user_account }}/.ssh/matanuii_id_rsa -p 22022 scv@84.246.85.173'
+
+alias ggp='git pull'
+alias ggc='git clone'
+alias ggcm='git checkout main'
+alias ggcms='git checkout master'
+alias ggcb='git checkout -b'
+alias ggbd='git branch -d'
+
+alias psql-primary='docker exec -ti postgres-primary psql -U postgres'

@@ -6,6 +6,16 @@
     owner: "{{ user_account }}"
     group: "{{ user_account }}"
     mode: '0644'
+  tags: [user_settings]
+
+- name: Configuration | Create .bash_aliases from template
+  ansible.builtin.template:
+    src: bash_aliases.j2
+    dest: "{{ user_home }}/.bash_aliases"
+    owner: "{{ user_account }}"
+    group: "{{ user_account }}"
+    mode: '0644'
+  tags: [user_settings]
 
 - name: Paths | Create /home subdirectories
   ansible.builtin.file:
@@ -15,3 +25,4 @@
     group: "{{ user_account }}"
     mode: '0750'
   loop: "{{ home_subdirs }} "
+  tags: [user_settings]
