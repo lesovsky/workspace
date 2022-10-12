@@ -63,6 +63,8 @@ goland_install_dir: "{{ non_apt_install_root }}/GoLand-{{ goland_version }}"
 telegram_download_url: "https://telegram.org/dl/desktop/linux"
 telegram_install_dir: "{{ non_apt_install_root}}/Telegram"
 
+princexml_download_url: https://www.princexml.com/download/prince_14.3-1_ubuntu20.04_amd64.deb
+
 ####
 # Services variables
 ####

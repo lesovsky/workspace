@@ -156,6 +156,15 @@
   tags: [install-docker]
 
 ######################################################################
+# PrinceXML
+######################################################################
+- name: Packages | Download and install princexml
+  ansible.builtin.apt:
+    deb: "{{ princexml_download_url }}"
+    state: present
+  tags: [install-princexml]
+
+######################################################################
 # Vagrant and VirtualBox
 ######################################################################
 
