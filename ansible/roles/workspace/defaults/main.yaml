@@ -25,6 +25,7 @@ apt_packages:
   - gwenview                       # image viewer
   - krusader                       # twin-panel file manager
   - audacious                      # audio player
+  - kolourpaint                    # simple image editor
   - lsb-release
   - ca-certificates
   - build-essential
