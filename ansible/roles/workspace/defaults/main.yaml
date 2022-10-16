@@ -10,6 +10,7 @@ apt_packages:
   - jq                             # command line JSON processor
   - gcc
   - vlc                            # multimedia player
+  - zim                            # wiki-based notes
   - curl
   - make
   - gnupg
@@ -65,6 +66,8 @@ telegram_download_url: "https://telegram.org/dl/desktop/linux"
 telegram_install_dir: "{{ non_apt_install_root}}/Telegram"
 
 princexml_download_url: https://www.princexml.com/download/prince_14.3-1_ubuntu20.04_amd64.deb
+
+dropbox_download_url: https://linux.dropbox.com/packages/ubuntu/dropbox_2020.03.04_amd64.deb
 
 ####
 # Services variables
