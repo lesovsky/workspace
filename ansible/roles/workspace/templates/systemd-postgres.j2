@@ -7,13 +7,13 @@ Requires=docker.service
 TimeoutStartSec=0
 Restart=always
 ExecStartPre=-/usr/bin/docker rm postgres-primary
-ExecStartPre=/usr/bin/docker pull postgres:15.0
 ExecStart=/usr/bin/docker run --name postgres-primary \
   --network postgres \
   -v {{ postgres_volume_dir_prefix }}-primary:/var/lib/postgresql/data \
   -p 5432:5432 \
   -e POSTGRES_HOST_AUTH_METHOD=trust \
-  postgres:15.0
+  local/postgres:15 \
+  -c 'shared_preload_libraries="pg_stat_statements"'
 ExecStop=/usr/bin/docker stop postgres-primary
 
 [Install]

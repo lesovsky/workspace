@@ -1,0 +1,12 @@
+FROM postgres:15
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && \
+    apt-get install -y curl ca-certificates gnupg make gcc git libfilesys-df-perl postgresql-plperl-15 && \
+    cpan Module::Build && \
+    cpan Linux::Ethtool::Settings && \
+    rm -rf /var/lib/apt/lists/*
+
+ENTRYPOINT ["docker-entrypoint.sh"]
+CMD ["postgres"]

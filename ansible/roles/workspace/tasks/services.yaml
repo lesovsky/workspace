@@ -13,6 +13,17 @@
     name: postgres
   tags: [postgres]
 
+- name: Docker Images | Build custom PostgreSQL image
+  community.docker.docker_image:
+    state: present
+    name: local/postgres
+    tag: 15
+    source: build
+    build:
+      path: ../roles/workspace/files
+      dockerfile: Dockerfile.postgres
+  tags: [postgres,build-image]
+
 - name: Systemd | Create unit-file for Postgres primary from template
   ansible.builtin.template:
     src: systemd-postgres.j2
