@@ -20,6 +20,7 @@ apt_packages:
   - firefox
   - sysstat                        # system performance tools
   - openvpn
+  - bridge-utils
   - network-manager-openvpn
   - openvpn-systemd-resolved
   - yakuake                        # quake-style dropdown terminal emulator
@@ -36,7 +37,7 @@ apt_packages:
 
 non_apt_install_root: /opt
 
-docker_version: 20.10.17
+docker_version: 20.10.21
 docker_compose_version: 2.7.0
 docker_compose_url: "https://github.com/docker/compose/releases/download/v{{ docker_compose_version }}/docker-compose-linux-{{ ansible_architecture }}"
 
