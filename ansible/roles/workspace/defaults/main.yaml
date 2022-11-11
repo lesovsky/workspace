@@ -23,6 +23,8 @@ apt_packages:
   - bridge-utils
   - network-manager-openvpn
   - openvpn-systemd-resolved
+  - vagrant
+  - virtualbox
   - yakuake                        # quake-style dropdown terminal emulator
   - gwenview                       # image viewer
   - krusader                       # twin-panel file manager
