@@ -173,8 +173,20 @@
   tags: [install-dropbox]
 
 ######################################################################
-# Vagrant and VirtualBox
+# Gitlab Runner
 ######################################################################
+- name: Packages | Download and install gitlab-runner. This may take a few minutes...
+  ansible.builtin.apt:
+    deb: "https://s3.amazonaws.com/gitlab-runner-downloads/latest/deb/gitlab-runner_amd64.deb"
+  tags: [install-gitlab-runner]
+
+- name: Services | Stop gitlab-runner service and disable autostart
+  ansible.builtin.systemd:
+    name: gitlab-runner
+    daemon-reload: True
+    enabled: False
+    state: stopped
+  tags: [install-gitlab-runner]
 
 ######################################################################
 # Telegram
