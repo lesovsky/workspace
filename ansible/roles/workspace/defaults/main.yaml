@@ -41,26 +41,26 @@ apt_packages:
 
 non_apt_install_root: /opt
 
-docker_version: 20.10.21
-docker_compose_version: 2.7.0
+docker_version: 23.0.1
+apt_docker_version: "5:{{ docker_version }}-1"
+apt_docker_packages:
+  - "docker-ce={{ apt_docker_version }}~{{ ansible_distribution | lower }}.22.04~{{ ansible_distribution_release }}"
+  - "docker-ce-cli={{ apt_docker_version }}~{{ ansible_distribution | lower }}.22.04~{{ ansible_distribution_release }}"
+  - containerd.io
+  - docker-compose-plugin
+
+docker_compose_version: 2.16.0
 docker_compose_url: "https://github.com/docker/compose/releases/download/v{{ docker_compose_version }}/docker-compose-linux-{{ ansible_architecture }}"
 
 docker_distfiles_url: "https://download.docker.com/linux/{{ ansible_distribution | lower }}"
 apt_repo_keyfile_path: /etc/apt/trusted.gpg.d/docker.gpg
 apt_repo_source: "deb [arch=amd64 signed-by={{ apt_repo_keyfile_path }}] {{ docker_distfiles_url }} {{ ansible_distribution_release }} stable"
 
-apt_docker_version: "5:{{ docker_version }}~3-0"
-apt_docker_packages:
-  - "docker-ce={{ apt_docker_version }}~{{ ansible_distribution | lower }}-{{ ansible_distribution_release }}"
-  - "docker-ce-cli={{ apt_docker_version }}~{{ ansible_distribution | lower }}-{{ ansible_distribution_release }}"
-  - containerd.io
-  - docker-compose-plugin
-
-golang_version: 1.19.2
+golang_version: 1.20.1
 golang_download_url: "https://go.dev/dl/go{{ golang_version }}.linux-amd64.tar.gz"
 golang_install_dir: "{{ non_apt_install_root }}/go-{{ golang_version }}"
 
-golangci_lint_version: 1.50.0
+golangci_lint_version: 1.51.1
 golangci_lint_download_url: "https://github.com/golangci/golangci-lint/releases/download/v{{ golangci_lint_version }}/golangci-lint-{{ golangci_lint_version }}-linux-amd64.tar.gz"
 
 goland_version: 2022.2
@@ -70,7 +70,7 @@ goland_install_dir: "{{ non_apt_install_root }}/GoLand-{{ goland_version }}"
 telegram_download_url: "https://telegram.org/dl/desktop/linux"
 telegram_install_dir: "{{ non_apt_install_root}}/Telegram"
 
-princexml_download_url: https://www.princexml.com/download/prince_14.3-1_ubuntu20.04_amd64.deb
+princexml_download_url: https://www.princexml.com/download/prince_20221028-1_ubuntu22.04_amd64.deb
 
 dropbox_download_url: https://linux.dropbox.com/packages/ubuntu/dropbox_2020.03.04_amd64.deb
 

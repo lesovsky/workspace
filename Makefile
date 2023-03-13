@@ -11,7 +11,7 @@ init: ## Initialize python virtualenv and dependencies
 	@test $$(which python3) || { echo "ERROR: python3 not found in PATH"; exit 1; }
 	@test $$(which pip3) || { echo "ERROR: pip3 not found in PATH"; exit 1; }
 	@test $$(which virtualenv) || { echo "ERROR: virtualenv not found in PATH"; exit 1; }
-	virtualenv --quiet --clear-app-data $(ENVDIR)
+	virtualenv --quiet --reset-app-data $(ENVDIR)
 	( source $(ENVDIR)/bin/activate; pip3 --quiet install -r requirements.txt )
 	@echo "INFO: virtualenv:  $(ENVDIR)"
 	@echo "INFO: activate:    source $(ENVDIR)/bin/activate"
