@@ -173,6 +173,29 @@
   tags: [install-dropbox]
 
 ######################################################################
+# Yandex.Disk
+######################################################################
+- name: APT Keys | Add Yandex.Disk APT key
+  ansible.builtin.apt_key:
+    url: http://repo.yandex.ru/yandex-disk/YANDEX-DISK-KEY.GPG
+    state: present
+  tags: [install-yandex-disk]
+
+- name: APT Repositories | Install Yandex.Disk repository
+  ansible.builtin.apt_repository:
+    repo: "deb http://repo.yandex.ru/yandex-disk/deb/ stable main"
+    state: present
+    filename: yandex-disk.list
+  tags: [install-yandex-disk]
+
+- name: Packages | Install Yandex.Disk client package
+  ansible.builtin.apt:
+    pkg: yandex-disk
+    state: present
+    update_cache: true
+  tags: [install-yandex-disk]
+
+######################################################################
 # Gitlab Runner
 ######################################################################
 - name: Packages | Download and install gitlab-runner. This may take a few minutes...
